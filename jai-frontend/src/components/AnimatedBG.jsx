@@ -202,7 +202,7 @@ export const AnimatedBG = () => {
       if (Math.floor(time * 10) % 3 !== 0) return;
 
       const maxDist = CONFIG.connectionDistance;
-      const maxDistSq = maxDist * maxDist;
+    
 
       // Clear previous connections
       connections.length = 0;
