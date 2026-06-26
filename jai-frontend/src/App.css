@@ -7,31 +7,36 @@
    sharp clipped corners kept (echoes the faceted J mark).
    ============================================================ */
 :root {
-  --bg: #B5B9F0;
-  --surface: #2C3947;
-  --surface-sunken: #ebe9e4;
-  --border: #e0ddd6;
-  --border-bright: #cbc7bc;
-  --teal: #3f7468;
-  --teal-dim: #5c9485;
-  --teal-bright: #2c544a;
-  --teal-wash: rgba(63, 116, 104, 0.08);
-  --ink: #ffffff;
-  --ink-dim: #02fcfc;
-  --ink-faint: #643f07;
-  --signal: #073127;
-  --signal-dim: rgba(63, 116, 104, 0.1);
-  --danger: #b3473a;
-  --danger-dim: rgba(179, 71, 58, 0.08);
+  --bg: #EEF2F5;
+
+  --surface: #FFFFFF;
+  --surface-sunken: #E6EDF2;
+
+  --border: #CBD5E1;
+  --border-bright: #94A3B8;
+
+  --teal: #0F766E;
+  --teal-dim: #115E59;
+  --teal-bright: #14B8A6;
+  --teal-wash: rgba(20,184,166,.08);
+
+  --ink: #111827;
+  --ink-dim: #475569;
+  --ink-faint: #64748B;
+
+  --signal: #15803D;
+  --signal-dim: rgba(21,128,61,.10);
+
+  --danger: #DC2626;
+  --danger-dim: rgba(220,38,38,.08);
 
   --font-display: 'Sora', system-ui, sans-serif;
-  --font-mono: 'Space Mono', 'SF Mono', monospace;
-  --font-body: system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: system-ui, sans-serif;
 
   --cut: 4px;
   --cut-lg: 6px;
 }
-
 * {
   box-sizing: border-box;
 }
