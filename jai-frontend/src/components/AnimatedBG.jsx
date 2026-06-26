@@ -334,7 +334,8 @@ export const AnimatedBG = () => {
     let raf;
     let lastTime = 0;
 
-    const loop = (timestamp) => {
+ const loop = (timestamp) => {
+      // eslint-disable-next-line no-unused-vars
       const dt = Math.min(32, timestamp - lastTime);
       lastTime = timestamp;
       time = timestamp;
