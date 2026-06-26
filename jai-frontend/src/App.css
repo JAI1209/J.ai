@@ -18,17 +18,17 @@
   --teal: #0F766E;
   --teal-dim: #115E59;
   --teal-bright: #14B8A6;
-  --teal-wash: rgba(20,184,166,.08);
+  --teal-wash: rgba(20, 184, 166, .08);
 
   --ink: #111827;
   --ink-dim: #475569;
   --ink-faint: #64748B;
 
   --signal: #15803D;
-  --signal-dim: rgba(21,128,61,.10);
+  --signal-dim: rgba(21, 128, 61, .10);
 
   --danger: #DC2626;
-  --danger-dim: rgba(220,38,38,.08);
+  --danger-dim: rgba(220, 38, 38, .08);
 
   --font-display: 'Sora', system-ui, sans-serif;
   --font-mono: 'Space Mono', monospace;
@@ -37,6 +37,7 @@
   --cut: 4px;
   --cut-lg: 6px;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -83,14 +84,16 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .facet-bg > div {
+  .facet-bg>div {
     animation: none !important;
   }
+
   .output-card,
   .diff-viewer,
   .score-panel {
     animation: none !important;
   }
+
   .score-bar-fill {
     transition: none !important;
   }
@@ -124,34 +127,77 @@ body {
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   margin-bottom: 0.6rem;
 }
 
 .brand-icon {
-  width: 30px;
-  height: 30px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
+  flex-shrink: 0;
   display: block;
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink);
   margin: 0;
+  margin-left: -18px;
+  /* adjust -15px to -25px */
   display: flex;
-  align-items: baseline;
+  align-items: center;
+
+  font-family: var(--font-display);
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
 
 .title-dot-ai {
-  font-weight: 400;
   color: var(--teal);
+  font-weight: 600;
+  margin: 0;
+  transform: translateY(12px);
+  color: #0b705f;
+  overflow: hidden;
 }
+
+
+.title-dot-ai::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(110deg,
+      transparent 30%,
+      rgba(255, 255, 255, .08) 42%,
+      rgba(255, 255, 255, .65) 50%,
+      rgba(255, 255, 255, .08) 58%,
+      transparent 70%);
+
+  transform: skewX(-18deg) translateX(-180%);
+  mix-blend-mode: screen;
+  animation: metalWave 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes metalWave {
+
+  0%,
+  20% {
+    transform: skewX(-18deg) translateX(-180%);
+  }
+
+  45% {
+    transform: skewX(-18deg) translateX(180%);
+  }
+
+  100% {
+    transform: skewX(-18deg) translateX(180%);
+  }
+}
+
+
 
 .tagline {
   font-family: var(--font-display);
@@ -651,9 +697,17 @@ body {
   display: inline-block;
 }
 
-.diff-dot-added { background: var(--signal); }
-.diff-dot-removed { background: var(--danger); }
-.diff-dot-preserved { background: var(--ink-faint); }
+.diff-dot-added {
+  background: var(--signal);
+}
+
+.diff-dot-removed {
+  background: var(--danger);
+}
+
+.diff-dot-preserved {
+  background: var(--ink-faint);
+}
 
 /* ============================================================
    Score panels
@@ -744,6 +798,7 @@ body {
   .score-panels-row {
     grid-template-columns: 1fr;
   }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -956,9 +1011,11 @@ body {
   .dashboard-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .history-row {
     grid-template-columns: 60px 1fr;
   }
+
   .history-meta {
     display: none;
   }
@@ -977,38 +1034,57 @@ button:focus-visible,
    Shared animation + scrollbar
    ============================================================ */
 @keyframes cardIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes birdFly {
   0% {
     transform: translate(0, 0) rotate(0deg);
   }
+
   25% {
     transform: translate(var(--drift), calc(var(--drift) * -0.4)) rotate(15deg);
   }
+
   50% {
     transform: translate(calc(var(--drift) * 1.6), calc(var(--drift) * 0.2)) rotate(-10deg);
   }
+
   75% {
     transform: translate(calc(var(--drift) * 0.8), calc(var(--drift) * 0.9)) rotate(20deg);
   }
+
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
 }
+
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--border-bright);
   border-radius: 4px;
